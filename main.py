@@ -5,22 +5,27 @@ root = tk.Tk()
 
 # Add a title to main window
 root.title("ATM Simulator")
-# Specify main window sixe
-root.geometry("500x400")
+
+# create a tk frame for main window
+frame = tk.Frame(root, padx=50, pady=50)
+frame.pack()
+
 
 #add account number entry
-account_number_entry = tk.Entry(root, width=100)
-account_number_entry.pack(side="top")
+account_number_entry = tk.Entry(frame, width=50)
+account_number_entry.grid(column=1, row=1)
+
 # Add check balance button
 check_balance_button = tk.Button(
-  root, 
+  frame, 
   text="Check balance",
   command=lambda : check_balance(account_number = account_number_entry.get()))
-check_balance_button.pack(side="top")
+check_balance_button.grid(column=2, row=1)
 
 # add deposit button
-Deposit_btn = tk.Button (root, text = "Deposit")
-Deposit_btn.pack (side="top")
+Deposit_btn = tk.Button (frame, text = "Deposit")
+Deposit_btn.grid(column=3, row=1)
+
 
 # Open the main window
 root.mainloop()
